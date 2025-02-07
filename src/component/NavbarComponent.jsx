@@ -7,6 +7,12 @@ const NavbarComponent = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header className="bg-white">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -107,7 +113,12 @@ const NavbarComponent = () => {
             </div>
 
             <div className="block md:hidden">
-              <button className="p-2 text-gray-600 transition bg-gray-100 rounded-sm hover:text-gray-600/75">
+              {" "}
+              {/* Tombol hamburger di layar mobile */}
+              <button
+                className="p-2 text-gray-600 transition bg-gray-100 rounded-sm hover:text-gray-600/75"
+                onClick={toggleMobileMenu} // Ini yang penting!
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="size-5"
@@ -124,6 +135,81 @@ const NavbarComponent = () => {
                 </svg>
               </button>
             </div>
+
+            {/* Menu Mobile (Fullscreen) */}
+            {isMobileMenuOpen && (
+              <div className="fixed top-0 left-0 z-50 w-full h-full bg-white">
+                {/* Overlay fullscreen */}
+                <div className="flex justify-end p-4">
+                  <button className="text-gray-600" onClick={toggleMobileMenu}>
+                    {/* Tombol close */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <nav className="w-full h-full p-4">
+                  {/* Navigasi mobile */}
+                  <ul className="flex flex-col items-center gap-4 text-lg ">
+                    <li>
+                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                        Blog
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                        Notification
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                        My Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      {" "}
+                      {/* Logout di menu mobile */}
+                      <button
+                        type="submit"
+                        className="flex items-center w-full gap-2 px-4 py-2 text-sm text-red-700 rounded-lg hover:bg-red-50"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="size-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                          />
+                        </svg>
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            )}
           </div>
         </div>
       </div>
