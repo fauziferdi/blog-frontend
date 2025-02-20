@@ -14,7 +14,7 @@ const HomePage = () => {
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8 ">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
           {/* second main */}
-          <div class=" rounded-lg bg-gray-200 md:col-span-2">
+          <div class=" rounded-lg md:col-span-2">
             <div className="flex justify-between">
               {/* button switch main follow */}
               <HandleSwitchComponent

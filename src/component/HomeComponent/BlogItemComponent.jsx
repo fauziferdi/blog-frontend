@@ -1,48 +1,61 @@
 import React from "react";
-import { Heart } from "lucide-react";
+import {
+  Bookmark,
+  GitCommitVertical,
+  Heart,
+  MessageCircle,
+  Repeat,
+  ThumbsUp,
+} from "lucide-react";
+import TagCategoryComponent from "./TagCategoryComponent";
 
-const BlogItemComponent = ({
-  title = "Terima Kasih",
-  body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit.",
-  image = "https://lh6.googleusercontent.com/proxy/HSNVZUIVMyU6NLtDuSCPOqOhlW_JAT-TVVYjdpAa9VcY6FkJ4RpwSPzdZLeIAXoyZj0fj60t5E_8eDREH6rWCDCJEIom5NCHnwrdgPDXouoMeuAUhXZLqBNYE07S_xV_FG42vVbD2nRBKLxNwXlNShh1sv6bvQQk1e8P3Gsask0S5SL54L9BrfJu926_Udtw3VLviw", // Contoh gambar placeholder
-  author = {
-    name: "John Doe",
-    image:
-      "https://lh6.googleusercontent.com/proxy/HSNVZUIVMyU6NLtDuSCPOqOhlW_JAT-TVVYjdpAa9VcY6FkJ4RpwSPzdZLeIAXoyZj0fj60t5E_8eDREH6rWCDCJEIom5NCHnwrdgPDXouoMeuAUhXZLqBNYE07S_xV_FG42vVbD2nRBKLxNwXlNShh1sv6bvQQk1e8P3Gsask0S5SL54L9BrfJu926_Udtw3VLviw", // Contoh gambar profil placeholder
-  },
-  date = "20 Februari 2025",
-  onClick,
-  isLiked = false,
-  onLike,
-}) => {
+const BlogItemComponent = ({}) => {
   return (
-    <div className="overflow-hidden bg-white rounded-lg shadow-md">
-      <img
-        src={image}
-        alt={title}
-        className="object-cover w-full h-48 bg-violet-600"
-      />
-      <div className="p-4">
-        <h2 className="mb-2 text-xl font-bold">{title}</h2>
-        <p className="mb-4 text-base text-gray-700">{body}</p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <img
-              src={author.image}
-              alt={author.name}
-              className="w-8 h-8 mr-2 rounded-full bg-violet-600 "
-            />
-            <div>
-              <p className="text-sm text-gray-600">{author.name}</p>
-              <p className="text-xs text-gray-500">{date}</p>
-            </div>
-          </div>
-          <button onClick={onLike}>
-            <Heart
-              size={24}
-              className={`text-${isLiked ? "red" : "gray-500"}`}
-            />
-          </button>
+    <div className="px-4 py-2 bg-white rounded-md">
+      {/* header Blog */}
+      <div className="flex justify-between">
+        <div className="flex items-center gap-2">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx88G-18kUyz_BIdAMZzwdbkkJ1pHa8yhJPA&s"
+            alt="profile pictures"
+            className="w-10 h-10 rounded-full"
+          />
+          <h3 className="text-sm font-semibold">Bunga Cintra Lestari</h3>
+          <h3 className="text-xs text-gray-500">4 days ago</h3>
+        </div>
+        <div className="items-center gap-2 p-2 sm:flex">
+          <TagCategoryComponent category={"Technology"} />
+          <TagCategoryComponent category={"Portofolio"} />
+        </div>
+      </div>
+      {/* body blog */}
+      <div className="grid grid-cols-3 gap-4 py-2 =">
+        <div className="col-span-2">
+          <h2 className="mb-1 text-xl font-semibold">
+            Your Title Min Is a naught beautyfull
+          </h2>
+          <p className="overflow-y-auto max-h-48">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            eos perspiciatis optio esse, ratione, unde placeat deleniti aliquam
+            itaque deserunt velit corporis, voluptatem architecto quibusdam rem
+            perferendis est! Magnam, perspiciatis?..
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAvefdgiMzP7NaQ9U6STbn9Zb8WvNMH2HVkg&s"
+            alt=" blog 1"
+            className="w-52"
+          />
+        </div>
+      </div>
+      <div className="flex items-center justify-between py-2">
+        <h5> 3 min read</h5>
+        <div className="flex items-center gap-2 w-28">
+          <ThumbsUp className="hover:text-blue-700" />
+          <MessageCircle className="hover:text-blue-700" />
+          <Repeat className="hover:text-blue-700" />
+          <Bookmark className="hover:text-blue-700" />
         </div>
       </div>
     </div>
