@@ -2,10 +2,10 @@ import React from "react";
 import { Bookmark, MessageCircle, Repeat, ThumbsUp } from "lucide-react";
 import BlogItemComponent from "./BlogItemComponent";
 
-const RetweetItemComponent = () => {
+const RetweetSubItemComponent = () => {
   return (
     <div className="px-4 py-2 bg-white rounded-md ">
-      {/* header Retweet */}
+      {/* header RetweetSub */}
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
           <img
@@ -17,7 +17,7 @@ const RetweetItemComponent = () => {
           <h3 className="text-xs text-gray-500">4 days ago</h3>
         </div>
       </div>
-      {/* body Retweet */}
+      {/* body RetweetSub */}
       <div className="md:ms-12">
         <div className="py-2 md:py-0 ">
           <p className="overflow-y-auto max-h-48">
@@ -30,7 +30,7 @@ const RetweetItemComponent = () => {
         <div className="my-3 rounded-lg bg-slate-200">
           <BlogItemComponent retweet={true} />
         </div>
-        {/* Footer Retweet */}
+        {/* Footer RetweetSub */}
         <div className="flex items-center justify-between py-2">
           <h5> 3 min read</h5>
           <div className="flex items-center gap-2 w-28">
@@ -45,4 +45,4 @@ const RetweetItemComponent = () => {
   );
 };
 
-export default RetweetItemComponent;
+export default RetweetSubItemComponent;
