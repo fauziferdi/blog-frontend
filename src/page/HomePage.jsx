@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HandleSwitchComponent from "../component/HomeComponent/HandleSwitchComponent";
 import { SquarePen } from "lucide-react";
 import BlogItemComponent from "../component/HomeComponent/BlogItemComponent";
+import RetweetItemComponent from "../component/HomeComponent/RetweetItemComponent";
 
 const HomePage = () => {
   const [activeButton, setActiveButton] = useState("forYou");
@@ -35,9 +36,7 @@ const HomePage = () => {
             {/* List Blog */}
             <div className="grid grid-cols-1 gap-4 py-4">
               <BlogItemComponent />
-              <BlogItemComponent />
-              <BlogItemComponent />
-              <BlogItemComponent />
+              <RetweetItemComponent />
             </div>
           </div>
           {/* section second */}

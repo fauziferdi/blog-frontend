@@ -8,14 +8,11 @@ import {
   ThumbsUp,
 } from "lucide-react";
 import TagCategoryComponent from "./TagCategoryComponent";
+import BlogItemComponent from "./BlogItemComponent";
 
-const BlogItemComponent = ({ retweet = false }) => {
+const RetweetItemComponent = ({}) => {
   return (
-    <div
-      className={`px-4 py-2 rounded-md hover:bg-gray-100 ${
-        retweet ? "" : "bg-white"
-      }`}
-    >
+    <div className="px-4 py-2 bg-white rounded-md ">
       {/* header Blog */}
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
@@ -27,17 +24,10 @@ const BlogItemComponent = ({ retweet = false }) => {
           <h3 className="text-sm font-semibold">Bunga Cintra Lestari</h3>
           <h3 className="text-xs text-gray-500">4 days ago</h3>
         </div>
-        <div className="items-center hidden gap-2 p-2 sm:flex">
-          <TagCategoryComponent category={"Technology"} />
-          <TagCategoryComponent category={"Portofolio"} />
-        </div>
       </div>
       {/* body blog */}
-      <div className="grid grid-cols-3 gap-4 py-2 ">
-        <div className="col-span-2">
-          <h2 className="mb-1 text-xl font-semibold">
-            Your Title Min Is a naught beautyfull
-          </h2>
+      <div className="md:ms-12">
+        <div className="py-2 md:py-0 ">
           <p className="overflow-y-auto max-h-48">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
             eos perspiciatis optio esse, ratione, unde placeat deleniti aliquam
@@ -45,16 +35,9 @@ const BlogItemComponent = ({ retweet = false }) => {
             perferendis est! Magnam, perspiciatis?..
           </p>
         </div>
-        <div>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAvefdgiMzP7NaQ9U6STbn9Zb8WvNMH2HVkg&s"
-            alt=" blog 1"
-            className="w-52"
-          />
+        <div className="my-3 rounded-lg bg-slate-200">
+          <BlogItemComponent retweet={true} />
         </div>
-      </div>
-      {/* footer blog */}
-      {!retweet && (
         <div className="flex items-center justify-between py-2">
           <h5> 3 min read</h5>
           <div className="flex items-center gap-2 w-28">
@@ -64,9 +47,9 @@ const BlogItemComponent = ({ retweet = false }) => {
             <Bookmark className="hover:text-blue-700" />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
-export default BlogItemComponent;
+export default RetweetItemComponent;
