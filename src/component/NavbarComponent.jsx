@@ -113,7 +113,6 @@ const NavbarComponent = () => {
             </div>
 
             <div className="block md:hidden">
-              {" "}
               {/* Tombol hamburger di layar mobile */}
               <button
                 className="p-2 text-gray-600 transition bg-gray-100 rounded-sm hover:text-gray-600/75"
@@ -183,8 +182,6 @@ const NavbarComponent = () => {
                       </a>
                     </li>
                     <li>
-                      {" "}
-                      {/* Logout di menu mobile */}
                       <button
                         type="submit"
                         className="flex items-center w-full gap-2 px-4 py-2 text-sm text-red-700 rounded-lg hover:bg-red-50"

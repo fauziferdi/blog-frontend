@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
       <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-lg ">
         <h2 className="mb-4 text-2xl font-semibold ">Welcome Back 👋</h2>
-        <h3 className="mb-4 text-gray-500 tetx-2xl">
+        <h3 className="text-gray-500 tetx-2xl">
           Today is a new day. It's your day. You shape it. Sign in to start
           managing your projects.
         </h3>
@@ -73,7 +74,7 @@ const LoginPage = () => {
           <p>
             Don't have an account?
             <span className="text-blue-600 ms-1">
-              <a href="#">Sign up</a>
+              <a href="/">Sign up</a>
             </span>
           </p>
         </div>
