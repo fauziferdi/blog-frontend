@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Bell, Bookmark, Layers } from "lucide-react";
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const NavbarComponent = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <a className="block text-teal-600" href="#">
-              <h1 className="font-mono text-xl font-bold text-slate-700">
+              <h1 className="font-mono text-2xl font-bold text-slate-700">
                 Bloguys
               </h1>
             </a>
@@ -30,18 +31,35 @@ const NavbarComponent = () => {
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="flex text-gray-500 transition hover:text-gray-500/75"
                     href="#"
                   >
-                    Blog
+                    Categories
+                    <span className="ms-2">
+                      <Layers size={20} />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a
-                    className="text-gray-500 transition hover:text-gray-500/75"
+                    className="flex text-gray-500 transition hover:text-gray-500/75"
+                    href="#"
+                  >
+                    Bookmarks
+                    <span className="ms-2">
+                      <Bookmark size={20} />
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="flex text-gray-500 transition hover:text-gray-500/75"
                     href="#"
                   >
                     Notification
+                    <span className="ms-2">
+                      <Bell size={20} />
+                    </span>
                   </a>
                 </li>
               </ul>
