@@ -1,7 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../redux/slices/userSlice";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+    dispatch(loginUser({ email, password }));
+    navigate("/");
+  };
+
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
       <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-lg ">
@@ -10,19 +27,21 @@ const LoginPage = () => {
           Today is a new day. It's your day. You shape it. Sign in to start
           managing your projects.
         </h3>
-        <form className="py-6">
+        <form onSubmit={handleLogin} className="py-6">
           <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block mb-2 font-bold text-gray-700"
             >
-              Username
+              Email
             </label>
             <input
-              type="text"
-              id="username"
+              id="email"
+              type="email"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Example@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -37,6 +56,8 @@ const LoginPage = () => {
               id="password"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="At least 8 characters"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="flex justify-end mb-4">
