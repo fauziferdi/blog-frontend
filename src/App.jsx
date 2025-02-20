@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./page/HomePage";
 import NavbarComponent from "./component/NavbarComponent";
 import LoginPage from "./page/LoginPage";
+import SignUpPage from "./page/SignUpPage";
 import { useSelector } from "react-redux";
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
     </Router>
   );
