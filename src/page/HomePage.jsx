@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import HandleSwitchComponent from "../component/HomeComponent/HandleSwitchComponent";
-import { SquarePen } from "lucide-react";
+import {
+  Bookmark,
+  FireExtinguisher,
+  Flame,
+  Medal,
+  Search,
+  SearchIcon,
+  SquarePen,
+} from "lucide-react";
 import BlogItemComponent from "../component/HomeComponent/BlogItemComponent";
 import RetweetItemComponent from "../component/HomeComponent/RetweetItemComponent";
+import MostCategoryItemComponent from "../component/HomeComponent/MostCategoryItemComponent";
 
 const HomePage = () => {
   const [activeButton, setActiveButton] = useState("forYou");
@@ -40,7 +49,57 @@ const HomePage = () => {
             </div>
           </div>
           {/* section second */}
-          <div class="h-32 rounded-lg bg-gray-200 hidden md:block"></div>
+          <div className="hidden rounded-lg md:block ">
+            {/* search section */}
+            <div className="relative">
+              <div className="flex items-center">
+                <Search className="absolute left-3 text-slate-500" size={20} />
+                <input
+                  className="w-full px-4 py-2 pl-10 rounded-lg"
+                  type="text"
+                  placeholder="Search for anything"
+                />
+              </div>
+            </div>
+            {/* most category section */}
+            <div className="mt-3">
+              <div className="pb-2 bg-white rounded-lg shadow-md">
+                <div className="flex items-center p-2 text-red-600">
+                  <Flame />
+                  <h2 className="font-semibold ms-1">Most Category</h2>
+                </div>
+                <div className="grid grid-cols-2 gap-2 px-2">
+                  <MostCategoryItemComponent />
+                  <MostCategoryItemComponent />
+                  <MostCategoryItemComponent />
+                  <MostCategoryItemComponent />
+                  <MostCategoryItemComponent />
+                  <MostCategoryItemComponent />
+                </div>
+              </div>
+            </div>
+            {/* most category section */}
+            <div className="mt-3">
+              <div className="pb-2 bg-white rounded-lg shadow-md">
+                <div className="flex items-center p-2 text-red-600">
+                  <Medal />
+                  <h2 className="font-semibold ms-1">Recomendation Blog</h2>
+                </div>
+                <div className="grid grid-cols-2 gap-2 px-2"></div>
+              </div>
+            </div>
+
+            {/* recent bookmark section */}
+            <div className="mt-3">
+              <div className="pb-2 bg-white rounded-lg shadow-md">
+                <div className="flex items-center p-2 text-red-600">
+                  <Bookmark />
+                  <h2 className="font-semibold ms-1">Recently Seved</h2>
+                </div>
+                <div className="grid grid-cols-2 gap-2 px-2"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
