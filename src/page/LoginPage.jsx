@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../redux/slices/userSlice";
@@ -19,6 +19,40 @@ const LoginPage = () => {
     navigate("/");
   };
 
+  const handleGoogleLogin = () => {
+    // Redirect ke URL login Google backend
+    window.location.href = "http://localhost:8080/auth/google/login";
+  };
+
+  // useEffect untuk menangani callback setelah login Google
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+    if (code) {
+      // Kirim code ke backend untuk verifikasi dan mendapatkan token
+      fetch("http://localhost:8080/auth/google/callback?code=" + code) // Include the code in the request
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.token) {
+            // Simpan token di localStorage atau Redux
+            localStorage.setItem("token", data.token); // Contoh: localStorage
+            dispatch(loginUser({ token: data.token, provider: "google" })); // Dispatch action login dengan token dan provider
+            navigate("/");
+          } else {
+            console.error(
+              "Error during Google login:",
+              data.message || "Token not received"
+            );
+            // Handle error, misalnya dengan menampilkan pesan ke user
+            alert("Login with Google failed. Please try again.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error during Google login:", error);
+          alert("Login with Google failed. Please try again.");
+        });
+    }
+  });
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
       <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-lg ">
@@ -81,7 +115,10 @@ const LoginPage = () => {
         </div>
 
         <div className="mt-6">
-          <button className="flex items-center justify-center w-full px-4 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 ">
+          <button
+            onClick={handleGoogleLogin}
+            className="flex items-center justify-center w-full px-4 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 "
+          >
             <img
               src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
               alt=""
