@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import HandleSwitchComponent from "../component/HomeComponent/HandleSwitchComponent";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repassword, setRepassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [username, setUsername] = useState("");
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (password !== repassword) {
+      setPasswordError("Password tidak sama");
+      console.log("Password tidak sama");
+      return;
+    } else {
+      setPasswordError("");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
@@ -16,7 +31,7 @@ const SignUpPage = () => {
           Today is a new day. It's your day. You shape it. Sign in to start
           managing your projects.
         </h3>
-        <form className="py-6">
+        <form onSubmit={handleSignUp} className="py-6">
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -45,8 +60,8 @@ const SignUpPage = () => {
               type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Example Fauzi673"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -67,19 +82,25 @@ const SignUpPage = () => {
           </div>
           <div className="mb-4">
             <label
-              htmlFor="password"
+              htmlFor="repassword"
               className="block mb-2 font-bold text-gray-700"
             >
               Re Password
             </label>
             <input
               type="password"
-              id="password"
+              id="repassword"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="At least 8 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={repassword}
+              onChange={(e) => {
+                setRepassword(e.target.value);
+                setPasswordError("");
+              }}
             />
+            {passwordError && (
+              <p className="text-sm text-red-500">{passwordError}</p>
+            )}
           </div>
 
           <button

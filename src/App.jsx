@@ -4,19 +4,18 @@ import HomePage from "./page/HomePage";
 import NavbarComponent from "./component/NavbarComponent";
 import LoginPage from "./page/LoginPage";
 import SignUpPage from "./page/SignUpPage";
-import { useSelector } from "react-redux";
+import DirectPage from "./page/DirectPage";
 
 const App = () => {
-  const { users } = useSelector((state) => state.user);
-  console.log(users);
   return (
     <Router>
-      {users && <NavbarComponent />}
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login/direct" element={<DirectPage />} />
       </Routes>
     </Router>
   );
