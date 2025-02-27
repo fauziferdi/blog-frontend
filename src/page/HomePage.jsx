@@ -12,6 +12,8 @@ import {
 import BlogItemComponent from "../component/HomeComponent/BlogItemComponent";
 import RetweetItemComponent from "../component/HomeComponent/RetweetItemComponent";
 import MostCategoryItemComponent from "../component/HomeComponent/MostCategoryItemComponent";
+import BlogSideItemComponent from "../component/HomeComponent/BlogSideItemComponent";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [activeButton, setActiveButton] = useState("forYou");
@@ -40,7 +42,7 @@ const HomePage = () => {
               </button>
             </div>
             {/* active category blog */}
-            <h4 className="py-4 text-slate-700 ">All Category</h4>
+            <h4 className="py-4 text-slate-700 ms-1">All Category</h4>
 
             {/* List Blog */}
             <div className="grid grid-cols-1 gap-4 py-4">
@@ -68,7 +70,7 @@ const HomePage = () => {
                   <Flame />
                   <h2 className="font-semibold ms-1">Most Category</h2>
                 </div>
-                <div className="grid grid-cols-2 gap-2 px-2">
+                <div className="grid justify-center grid-cols-1 gap-2 px-2 lg:grid-cols-2">
                   <MostCategoryItemComponent />
                   <MostCategoryItemComponent />
                   <MostCategoryItemComponent />
@@ -85,7 +87,14 @@ const HomePage = () => {
                   <Medal />
                   <h2 className="font-semibold ms-1">Recomendation Blog</h2>
                 </div>
-                <div className="grid grid-cols-2 gap-2 px-2"></div>
+                <div className="grid grid-cols-1 gap-1 px-2">
+                  <BlogSideItemComponent />
+                  <BlogSideItemComponent />
+                  <BlogSideItemComponent />
+                </div>
+                <div className="text-sm ms-3 text-slate-500">
+                  <Link to="#">See The Full List</Link>
+                </div>
               </div>
             </div>
 
@@ -94,9 +103,16 @@ const HomePage = () => {
               <div className="pb-2 bg-white rounded-lg shadow-md">
                 <div className="flex items-center p-2 text-red-600">
                   <Bookmark />
-                  <h2 className="font-semibold ms-1">Recently Seved</h2>
+                  <h2 className="font-semibold ms-1">Recently Saved</h2>
                 </div>
-                <div className="grid grid-cols-2 gap-2 px-2"></div>
+                <div className="grid grid-cols-1 gap-1 px-2">
+                  <BlogSideItemComponent />
+                  <BlogSideItemComponent />
+                  <BlogSideItemComponent />
+                </div>
+                <div className="text-sm ms-3 text-slate-500">
+                  <Link to="#">See All (88)</Link>
+                </div>
               </div>
             </div>
           </div>
