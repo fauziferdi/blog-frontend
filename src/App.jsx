@@ -6,18 +6,21 @@ import LoginPage from "./page/LoginPage";
 import SignUpPage from "./page/SignUpPage";
 import DirectPage from "./page/DirectPage";
 import CategoryPage from "./page/CategoryPage";
+import ProtectedRoute from "./component/ProtectedRoute";
 
 const App = () => {
   return (
     <Router>
       <NavbarComponent />
       <Routes>
-        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<HomePage />} />
-        <Route path="/category" element={<CategoryPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login/direct" element={<DirectPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<HomePage />} />
+          <Route path="/category" element={<CategoryPage />} />
+          <Route path="/login/direct" element={<DirectPage />} />
+        </Route>
       </Routes>
     </Router>
   );

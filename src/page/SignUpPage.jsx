@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import HandleSwitchComponent from "../component/HomeComponent/HandleSwitchComponent";
+import { registerUser } from "../redux/slices/userSlice";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,11 @@ const SignUpPage = () => {
   const [repassword, setRepassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
 
-  const handleSignUp = (e) => {
+  const { loading } = useSelector((state) => state.user);
+
+  const handleRegister = (e) => {
     e.preventDefault();
     if (password !== repassword) {
       setPasswordError("Password tidak sama");
@@ -20,6 +23,8 @@ const SignUpPage = () => {
       return;
     } else {
       setPasswordError("");
+      dispatch(registerUser({ username, password, email, name }));
+      navigate("/login");
     }
   };
 
@@ -31,7 +36,7 @@ const SignUpPage = () => {
           Today is a new day. It's your day. You shape it. Sign in to start
           managing your projects.
         </h3>
-        <form onSubmit={handleSignUp} className="py-6">
+        <form onSubmit={handleRegister} className="py-6">
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -62,6 +67,22 @@ const SignUpPage = () => {
               placeholder="Example Fauzi673"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block mb-2 font-bold text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Example Fauzi673"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -105,9 +126,10 @@ const SignUpPage = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full px-4 py-2 font-bold text-white rounded-lg bg-slate-900 hover:bg-slate-800 "
           >
-            Sign Up
+            {loading ? "Loading..." : "Sign Up"}
           </button>
         </form>
 
@@ -132,7 +154,7 @@ const SignUpPage = () => {
           <p>
             You have an account?
             <span className="text-blue-600 ms-1">
-              <a href="/">Login</a>
+              <Link to="/login">Login</Link>
             </span>
           </p>
         </div>

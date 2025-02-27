@@ -31,7 +31,7 @@ export const registerUser = createAsyncThunk(
   "user/register",
   async ({ username, password, email, name }, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:8080/auth/register", {
+      const response = await axios.post("http://localhost:8080/auth/signup", {
         username,
         password,
         email,
@@ -55,7 +55,9 @@ const userSlice = createSlice({
     logout(state) {
       state.user = null;
       state.token = null;
+      console.log(localStorage.getItem("token"));
       localStorage.removeItem("token");
+      console.log(localStorage.getItem("token"));
     },
   },
   extraReducers: (builder) => {

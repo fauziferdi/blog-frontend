@@ -76,8 +76,9 @@ const LoginPage = () => {
           <button
             type="submit"
             className="w-full px-4 py-2 font-bold text-white rounded-lg bg-slate-900 hover:bg-slate-800 "
+            disabled={loading}
           >
-            Login
+            {loading ? "Loading..." : "Login"}
           </button>
         </form>
 
@@ -105,7 +106,7 @@ const LoginPage = () => {
           <p>
             Don't have an account?
             <span className="text-blue-600 ms-1">
-              <a href="/">Sign up</a>
+              <Link to="/signup">Sign up</Link>
             </span>
           </p>
         </div>
