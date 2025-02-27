@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Bell, Bookmark, Layers } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,48 +20,48 @@ const NavbarComponent = () => {
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
+            <Link className="block text-teal-600" to="/">
               <h1 className="font-mono text-2xl font-bold text-slate-700">
                 Bloguys
               </h1>
-            </a>
+            </Link>
           </div>
 
           <div className="md:flex md:items-center md:gap-6">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
                     className="flex text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    to="/category"
                   >
                     Categories
                     <span className="ms-2">
                       <Layers size={20} />
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="flex text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    to="/Bookmark"
                   >
                     Bookmarks
                     <span className="ms-2">
                       <Bookmark size={20} />
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="flex text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    to="/notification"
                   >
                     Notification
                     <span className="ms-2">
                       <Bell size={20} />
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -86,21 +87,21 @@ const NavbarComponent = () => {
                   role="menu"
                 >
                   <div className="p-2">
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
                       My profile
-                    </a>
+                    </Link>
 
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
                       Settings
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="p-2">
@@ -180,24 +181,36 @@ const NavbarComponent = () => {
                   {/* Navigasi mobile */}
                   <ul className="flex flex-col items-center gap-4 text-lg ">
                     <li>
-                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                      <Link
+                        to="/"
+                        className="text-gray-700 hover:text-gray-900"
+                      >
                         Blog
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                      <Link
+                        to="/"
+                        className="text-gray-700 hover:text-gray-900"
+                      >
                         Notification
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                      <Link
+                        to="/"
+                        className="text-gray-700 hover:text-gray-900"
+                      >
                         My Profile
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="text-gray-700 hover:text-gray-900">
+                      <Link
+                        to="/"
+                        className="text-gray-700 hover:text-gray-900"
+                      >
                         Settings
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <button

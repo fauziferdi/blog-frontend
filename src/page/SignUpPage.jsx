@@ -112,9 +112,9 @@ const SignUpPage = () => {
         </form>
 
         <div className="flex items-center justify-center gap-3 py-2">
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
           <h2 className="text-sm text-slate-400">Or</h2>
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
         </div>
 
         <div className="mt-6">

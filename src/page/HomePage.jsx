@@ -24,9 +24,9 @@ const HomePage = () => {
   return (
     <section className="w-full py-10 bg-slate-100">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8 ">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
           {/* second main */}
-          <div class=" rounded-lg md:col-span-2">
+          <div className="rounded-lg  md:col-span-2">
             <div className="flex justify-between">
               {/* button switch main follow */}
               <HandleSwitchComponent

@@ -5,6 +5,7 @@ import NavbarComponent from "./component/NavbarComponent";
 import LoginPage from "./page/LoginPage";
 import SignUpPage from "./page/SignUpPage";
 import DirectPage from "./page/DirectPage";
+import CategoryPage from "./page/CategoryPage";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<HomePage />} />
+        <Route path="/category" element={<CategoryPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login/direct" element={<DirectPage />} />
       </Routes>
