@@ -1,58 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../redux/slices/userSlice";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!email || !password) {
-      alert("Please fill in all fields");
-      return;
-    }
-    dispatch(loginUser({ email, password }));
-    navigate("/");
-  };
+  const { loading, error, token } = useSelector((state) => state.user);
 
   const handleGoogleLogin = () => {
-    // Redirect ke URL login Google backend
     window.location.href = "http://localhost:8080/auth/google/login";
   };
 
-  // useEffect untuk menangani callback setelah login Google
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-    if (code) {
-      // Kirim code ke backend untuk verifikasi dan mendapatkan token
-      fetch("http://localhost:8080/auth/google/callback?code=" + code) // Include the code in the request
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.token) {
-            // Simpan token di localStorage atau Redux
-            localStorage.setItem("token", data.token); // Contoh: localStorage
-            dispatch(loginUser({ token: data.token, provider: "google" })); // Dispatch action login dengan token dan provider
-            navigate("/");
-          } else {
-            console.error(
-              "Error during Google login:",
-              data.message || "Token not received"
-            );
-            // Handle error, misalnya dengan menampilkan pesan ke user
-            alert("Login with Google failed. Please try again.");
-          }
-        })
-        .catch((error) => {
-          console.error("Error during Google login:", error);
-          alert("Login with Google failed. Please try again.");
-        });
+    if (token) {
+      navigate("/");
     }
-  });
+  }, [token, navigate]);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(loginUser({ username, password }));
+  };
+
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
       <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-lg ">
@@ -64,18 +37,18 @@ const LoginPage = () => {
         <form onSubmit={handleLogin} className="py-6">
           <div className="mb-4">
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block mb-2 font-bold text-gray-700"
             >
-              Email
+              Username
             </label>
             <input
-              id="email"
-              type="email"
+              id="username"
+              type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Example@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -103,15 +76,16 @@ const LoginPage = () => {
           <button
             type="submit"
             className="w-full px-4 py-2 font-bold text-white rounded-lg bg-slate-900 hover:bg-slate-800 "
+            disabled={loading}
           >
-            Login
+            {loading ? "Loading..." : "Login"}
           </button>
         </form>
 
         <div className="flex items-center justify-center gap-3 py-2">
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
           <h2 className="text-sm text-slate-400">Or</h2>
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
         </div>
 
         <div className="mt-6">
@@ -132,7 +106,7 @@ const LoginPage = () => {
           <p>
             Don't have an account?
             <span className="text-blue-600 ms-1">
-              <a href="/">Sign up</a>
+              <Link to="/signup">Sign up</Link>
             </span>
           </p>
         </div>

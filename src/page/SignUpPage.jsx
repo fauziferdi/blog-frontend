@@ -1,12 +1,32 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../redux/slices/userSlice";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [repassword, setRepassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+
+  const { loading } = useSelector((state) => state.user);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (password !== repassword) {
+      setPasswordError("Password tidak sama");
+      console.log("Password tidak sama");
+      return;
+    } else {
+      setPasswordError("");
+      dispatch(registerUser({ username, password, email, name }));
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center h-screen px-5 bg-gray-100 sm:px-0">
@@ -16,7 +36,7 @@ const SignUpPage = () => {
           Today is a new day. It's your day. You shape it. Sign in to start
           managing your projects.
         </h3>
-        <form className="py-6">
+        <form onSubmit={handleRegister} className="py-6">
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -45,8 +65,24 @@ const SignUpPage = () => {
               type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Example Fauzi673"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block mb-2 font-bold text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Example Fauzi673"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -67,33 +103,40 @@ const SignUpPage = () => {
           </div>
           <div className="mb-4">
             <label
-              htmlFor="password"
+              htmlFor="repassword"
               className="block mb-2 font-bold text-gray-700"
             >
               Re Password
             </label>
             <input
               type="password"
-              id="password"
+              id="repassword"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="At least 8 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={repassword}
+              onChange={(e) => {
+                setRepassword(e.target.value);
+                setPasswordError("");
+              }}
             />
+            {passwordError && (
+              <p className="text-sm text-red-500">{passwordError}</p>
+            )}
           </div>
 
           <button
             type="submit"
+            disabled={loading}
             className="w-full px-4 py-2 font-bold text-white rounded-lg bg-slate-900 hover:bg-slate-800 "
           >
-            Sign Up
+            {loading ? "Loading..." : "Sign Up"}
           </button>
         </form>
 
         <div className="flex items-center justify-center gap-3 py-2">
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
           <h2 className="text-sm text-slate-400">Or</h2>
-          <hr class="border-t-2 border-t-slate-400 w-24" />
+          <hr className="w-24 border-t-2 border-t-slate-400" />
         </div>
 
         <div className="mt-6">
@@ -111,7 +154,7 @@ const SignUpPage = () => {
           <p>
             You have an account?
             <span className="text-blue-600 ms-1">
-              <a href="/">Login</a>
+              <Link to="/login">Login</Link>
             </span>
           </p>
         </div>
