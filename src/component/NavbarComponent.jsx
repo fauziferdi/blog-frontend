@@ -112,7 +112,7 @@ const NavbarComponent = () => {
                   >
                     <div className="p-2">
                       <Link
-                        to="/"
+                        to="/profile"
                         className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                         role="menuitem"
                       >
@@ -225,7 +225,7 @@ const NavbarComponent = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/profile"
                           className="text-gray-700 hover:text-gray-900"
                         >
                           My Profile
