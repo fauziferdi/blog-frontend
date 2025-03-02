@@ -8,6 +8,7 @@ import DirectPage from "./page/DirectPage";
 import CategoryPage from "./page/CategoryPage";
 import ProtectedRoute from "./component/ProtectedRoute";
 import ProfilePage from "./page/ProfilePage";
+import DetailBlogPage from "./page/DetailBlogPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/login/direct" element={<DirectPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/blog" element={<DetailBlogPage />} />
         </Route>
       </Routes>
     </Router>
