@@ -45,7 +45,7 @@ const BlogItemComponent = ({ retweet = false }) => {
             perferendis est! Magnam, perspiciatis?..
           </p>
         </div>
-        <div>
+        <div className="items-center justify-center sm:flex">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAvefdgiMzP7NaQ9U6STbn9Zb8WvNMH2HVkg&s"
             alt=" blog 1"
