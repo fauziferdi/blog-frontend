@@ -4,7 +4,7 @@ import BlogItemComponent from "./BlogItemComponent";
 
 const RetweetItemComponent = () => {
   return (
-    <div className="px-4 py-2 bg-white rounded-md ">
+    <div className="px-4 py-2 bg-white border rounded-md">
       {/* header Retweet */}
       <div className="flex justify-between">
         <div className="flex items-center gap-2">

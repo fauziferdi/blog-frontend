@@ -64,8 +64,8 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full pb-10 rounded-lg bg-slate-50 mt-85 lg:mt-96">
-            <div className="grid grid-cols-1 gap-3">
+          <div className="w-full p-5 bg-white rounded-lg mt-85 lg:mt-96">
+            <div className="grid grid-cols-1 gap-5">
               <BlogItemComponent />
               <RetweetItemComponent />
               <BlogItemComponent />

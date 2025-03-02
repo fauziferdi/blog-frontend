@@ -12,7 +12,7 @@ import TagCategoryComponent from "./TagCategoryComponent";
 const BlogItemComponent = ({ retweet = false }) => {
   return (
     <div
-      className={`px-4 py-2 rounded-md hover:bg-gray-100 ${
+      className={`px-4 py-2 rounded-md hover:bg-gray-100 border ${
         retweet ? "" : "bg-white"
       }`}
     >

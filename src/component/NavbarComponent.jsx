@@ -32,6 +32,13 @@ const NavbarComponent = () => {
       console.log("Token after logout:", localStorage.getItem("token"));
       console.log("Navigating to /login");
       navigate("/login");
+      // Tutup menu setelah logout.
+      if (isMenuOpen) {
+        toggleMenu();
+      }
+      if (isMobileMenuOpen) {
+        toggleMobileMenu();
+      }
     } catch (error) {
       console.error("Error during logout:", error);
     }
@@ -115,6 +122,7 @@ const NavbarComponent = () => {
                         to="/profile"
                         className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                         role="menuitem"
+                        onClick={toggleMenu}
                       >
                         My profile
                       </Link>
@@ -123,6 +131,7 @@ const NavbarComponent = () => {
                         to="/"
                         className="block px-4 py-2 text-sm text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700"
                         role="menuitem"
+                        onClick={toggleMenu}
                       >
                         Settings
                       </Link>
@@ -211,6 +220,7 @@ const NavbarComponent = () => {
                         <Link
                           to="/"
                           className="text-gray-700 hover:text-gray-900"
+                          onClick={toggleMobileMenu}
                         >
                           Blog
                         </Link>
@@ -219,6 +229,7 @@ const NavbarComponent = () => {
                         <Link
                           to="/"
                           className="text-gray-700 hover:text-gray-900"
+                          onClick={toggleMobileMenu}
                         >
                           Notification
                         </Link>
@@ -227,6 +238,7 @@ const NavbarComponent = () => {
                         <Link
                           to="/profile"
                           className="text-gray-700 hover:text-gray-900"
+                          onClick={toggleMobileMenu}
                         >
                           My Profile
                         </Link>
@@ -235,6 +247,7 @@ const NavbarComponent = () => {
                         <Link
                           to="/"
                           className="text-gray-700 hover:text-gray-900"
+                          onClick={toggleMobileMenu}
                         >
                           Settings
                         </Link>
