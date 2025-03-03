@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import TagCategoryComponent from "../component/HomeComponent/TagCategoryComponent";
-import { Facebook, Instagram, Twitter, X } from "lucide-react";
+import {
+  ArrowDown01,
+  ArrowDownUp,
+  ChevronDown,
+  Facebook,
+  Instagram,
+  LucideSortAsc,
+  SortAsc,
+  SortAscIcon,
+  Twitter,
+  X,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import ButtonFollow from "../component/ProfileComponent/ButtonFollow";
+import CommentItemComponent from "../component/DetailBlogComponent/CommentItemComponent";
 
 const DetailBlogPage = () => {
+  const [sortOption, setSortOption] = useState("terbaru");
+
+  const handleSortOptionChange = (event) => {
+    setSortOption(event.target.value);
+  };
+
   return (
     <section className="w-full min-h-screen py-10 bg-slate-100">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -133,6 +151,7 @@ const DetailBlogPage = () => {
             </div>
           </div>
         </div>
+
         {/* profile info creator */}
         <div className="mt-5 bg-white rounded-lg">
           <div className="flex flex-col items-center gap-2 p-4 md:flex-row md:items-center md:gap-10 md:px-20 lg:px-40">
@@ -149,6 +168,44 @@ const DetailBlogPage = () => {
               </h2>
             </div>
             <ButtonFollow />
+          </div>
+        </div>
+
+        {/* Comment Section Blog */}
+        <div className="mt-5 bg-white rounded-lg lg:px-10">
+          <div className="flex justify-between">
+            <h2 className="p-4 text-lg font-semibold md:text-xl">
+              Comments(111)
+            </h2>
+            <div className="flex items-center justify-center gap-2 px-4">
+              <div className="relative inline-block text-left">
+                <div>
+                  <span className="rounded-md shadow-sm">
+                    <select
+                      value={sortOption}
+                      onChange={handleSortOptionChange}
+                      className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-50 active:text-gray-800"
+                    >
+                      <option value="terbaru">Terbaru</option>
+                      <option value="terlama">Terlama</option>
+                      <option value="terpopuler">Terpopuler</option>
+                    </select>
+                  </span>
+                </div>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                  <ChevronDown className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-4 p-4">
+            {/* comment item */}
+            <CommentItemComponent />
+            <CommentItemComponent />
+            <CommentItemComponent />
+            <CommentItemComponent />
+            <CommentItemComponent />
+            <CommentItemComponent />
           </div>
         </div>
       </div>
