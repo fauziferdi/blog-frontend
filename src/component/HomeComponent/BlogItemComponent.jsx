@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Bookmark,
-  GitCommitVertical,
-  Heart,
-  MessageCircle,
-  Repeat,
-  ThumbsUp,
-} from "lucide-react";
+import { Bookmark, MessageCircle, Repeat, ThumbsUp } from "lucide-react";
 import TagCategoryComponent from "./TagCategoryComponent";
 import { Link } from "react-router-dom";
 
@@ -19,7 +12,6 @@ const BlogItemComponent = ({ retweet = false }) => {
         }`}
       >
         {/* header Blog */}
-
         <div className="flex justify-between">
           <div className="flex items-center gap-2">
             <img
