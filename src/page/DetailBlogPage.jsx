@@ -1,111 +1,155 @@
 import React from "react";
 import TagCategoryComponent from "../component/HomeComponent/TagCategoryComponent";
+import { Facebook, Instagram, Twitter, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import ButtonFollow from "../component/ProfileComponent/ButtonFollow";
 
 const DetailBlogPage = () => {
   return (
     <section className="w-full min-h-screen py-10 bg-slate-100">
-      <div className="max-w-screen-xl px-4 mx-auto bg-white sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        {/* body blog */}
         <div className="p-3 bg-white rounded-lg">
           <div className="flex items-center justify-center lg:mt-1">
             <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">
               Detail Blog
             </h1>
           </div>
-          <section>
-            <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-              <div class="space-y-4 md:space-y-8">
-                <img
-                  src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  class="rounded"
-                  alt=""
-                />
-                <div className="flex gap-2">
-                  <TagCategoryComponent category={"Technology"} />
-                  <TagCategoryComponent category={"Portofolio"} />
-                </div>
-                <div class="max-w-xl md:max-w-3xl lg:max-w-6xl">
-                  <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </h2>
-                  <div className="flex gap-2 py-2">
-                    <h3 className="font-semibold">Fauzi Ferdiansyah</h3>
-                    <h3 className="text-slate-500">12/22/2024</h3>
-                  </div>
 
-                  <p class="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, molestiae quos aut vero laudantium neque velit
-                    provident ipsam adipisci quidem! Deserunt inventore iusto
-                    aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Ipsa ad
-                    suscipit deleniti cumque ab dicta tenetur quia neque
-                    doloremque tempora laboriosam nisi dolorem voluptatem
-                    possimus voluptatibus maiores cum, iure doloribus?Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Velit
-                    labore voluptate minima nihil quasi perspiciatis quaerat
-                    quisquam ullam sit eius est modi quos, placeat ab libero,
-                    blanditiis fugiat alias incidunt!Loremlorem
-                  </p>
-                  <p class="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, molestiae quos aut vero laudantium neque velit
-                    provident ipsam adipisci quidem! Deserunt inventore iusto
-                    aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Ipsa ad
-                    suscipit deleniti cumque ab dicta tenetur quia neque
-                    doloremque tempora laboriosam nisi dolorem voluptatem
-                    possimus voluptatibus maiores cum, iure doloribus?Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Velit
-                    labore voluptate minima nihil quasi perspiciatis quaerat
-                    quisquam ullam sit eius est modi quos, placeat ab libero,
-                    blanditiis fugiat alias incidunt!Loremlorem
-                  </p>
-                  <p class="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, molestiae quos aut vero laudantium neque velit
-                    provident ipsam adipisci quidem! Deserunt inventore iusto
-                    aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Ipsa ad
-                    suscipit deleniti cumque ab dicta tenetur quia neque
-                    doloremque tempora laboriosam nisi dolorem voluptatem
-                    possimus voluptatibus maiores cum, iure doloribus?Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Velit
-                    labore voluptate minima nihil quasi perspiciatis quaerat
-                    quisquam ullam sit eius est modi quos, placeat ab libero,
-                    blanditiis fugiat alias incidunt!Loremlorem
-                  </p>
-                  <p class="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, molestiae quos aut vero laudantium neque velit
-                    provident ipsam adipisci quidem! Deserunt inventore iusto
-                    aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Ipsa ad
-                    suscipit deleniti cumque ab dicta tenetur quia neque
-                    doloremque tempora laboriosam nisi dolorem voluptatem
-                    possimus voluptatibus maiores cum, iure doloribus?Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Velit
-                    labore voluptate minima nihil quasi perspiciatis quaerat
-                    quisquam ullam sit eius est modi quos, placeat ab libero,
-                    blanditiis fugiat alias incidunt!Loremlorem
-                  </p>
-                  <p class="mt-4 text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, molestiae quos aut vero laudantium neque velit
-                    provident ipsam adipisci quidem! Deserunt inventore iusto
-                    aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Ipsa ad
-                    suscipit deleniti cumque ab dicta tenetur quia neque
-                    doloremque tempora laboriosam nisi dolorem voluptatem
-                    possimus voluptatibus maiores cum, iure doloribus?Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Velit
-                    labore voluptate minima nihil quasi perspiciatis quaerat
-                    quisquam ullam sit eius est modi quos, placeat ab libero,
-                    blanditiis fugiat alias incidunt!Loremlorem
-                  </p>
+          <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+            <div class="space-y-4 md:space-y-8">
+              <img
+                src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="rounded"
+                alt=""
+              />
+              <div className="flex gap-2">
+                <TagCategoryComponent category={"Technology"} />
+                <TagCategoryComponent category={"Portofolio"} />
+              </div>
+              <div class="max-w-xl md:max-w-3xl lg:max-w-6xl">
+                <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h2>
+                <div className="flex gap-2 py-2">
+                  <h3 className="font-semibold">Fauzi Ferdiansyah</h3>
+                  <h3 className="text-slate-500">12/22/2024</h3>
+                </div>
+                <hr className="mt-1 mb-4" />
+
+                <p class=" text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis, molestiae quos aut vero laudantium neque velit
+                  provident ipsam adipisci quidem! Deserunt inventore iusto
+                  aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ipsa ad suscipit
+                  deleniti cumque ab dicta tenetur quia neque doloremque tempora
+                  laboriosam nisi dolorem voluptatem possimus voluptatibus
+                  maiores cum, iure doloribus?Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Velit labore voluptate minima
+                  nihil quasi perspiciatis quaerat quisquam ullam sit eius est
+                  modi quos, placeat ab libero, blanditiis fugiat alias
+                  incidunt!Loremlorem
+                </p>
+                <p class="mt-4 text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis, molestiae quos aut vero laudantium neque velit
+                  provident ipsam adipisci quidem! Deserunt inventore iusto
+                  aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ipsa ad suscipit
+                  deleniti cumque ab dicta tenetur quia neque doloremque tempora
+                  laboriosam nisi dolorem voluptatem possimus voluptatibus
+                  maiores cum, iure doloribus?Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Velit labore voluptate minima
+                  nihil quasi perspiciatis quaerat quisquam ullam sit eius est
+                  modi quos, placeat ab libero, blanditiis fugiat alias
+                  incidunt!Loremlorem
+                </p>
+                <p class="mt-4 text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis, molestiae quos aut vero laudantium neque velit
+                  provident ipsam adipisci quidem! Deserunt inventore iusto
+                  aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ipsa ad suscipit
+                  deleniti cumque ab dicta tenetur quia neque doloremque tempora
+                  laboriosam nisi dolorem voluptatem possimus voluptatibus
+                  maiores cum, iure doloribus?Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Velit labore voluptate minima
+                  nihil quasi perspiciatis quaerat quisquam ullam sit eius est
+                  modi quos, placeat ab libero, blanditiis fugiat alias
+                  incidunt!Loremlorem
+                </p>
+                <p class="mt-4 text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis, molestiae quos aut vero laudantium neque velit
+                  provident ipsam adipisci quidem! Deserunt inventore iusto
+                  aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ipsa ad suscipit
+                  deleniti cumque ab dicta tenetur quia neque doloremque tempora
+                  laboriosam nisi dolorem voluptatem possimus voluptatibus
+                  maiores cum, iure doloribus?Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Velit labore voluptate minima
+                  nihil quasi perspiciatis quaerat quisquam ullam sit eius est
+                  modi quos, placeat ab libero, blanditiis fugiat alias
+                  incidunt!Loremlorem
+                </p>
+                <p class="mt-4 text-gray-700">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis, molestiae quos aut vero laudantium neque velit
+                  provident ipsam adipisci quidem! Deserunt inventore iusto
+                  aliquid nobis, ex dolorem officiis omnis esse. Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Ipsa ad suscipit
+                  deleniti cumque ab dicta tenetur quia neque doloremque tempora
+                  laboriosam nisi dolorem voluptatem possimus voluptatibus
+                  maiores cum, iure doloribus?Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Velit labore voluptate minima
+                  nihil quasi perspiciatis quaerat quisquam ullam sit eius est
+                  modi quos, placeat ab libero, blanditiis fugiat alias
+                  incidunt!Loremlorem
+                </p>
+                <hr className="mt-4" />
+                <div className="flex items-center justify-end gap-2 py-2 md:gap-3 text-slate-500">
+                  <h3>Share This : </h3>
+                  <Link
+                    to="https://www.facebook.com/"
+                    className="hover:text-blue-500"
+                  >
+                    <Facebook />
+                  </Link>
+                  <Link
+                    to="https://www.facebook.com/"
+                    className="hover:text-black"
+                  >
+                    <Twitter />
+                  </Link>
+                  <Link
+                    to="https://www.facebook.com/"
+                    className="hover:text-pink-800"
+                  >
+                    <Instagram />
+                  </Link>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+        {/* profile info creator */}
+        <div className="mt-5 bg-white rounded-lg">
+          <div className="flex flex-col items-center gap-2 p-4 md:flex-row md:items-center md:gap-10 md:px-20 lg:px-40">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx88G-18kUyz_BIdAMZzwdbkkJ1pHa8yhJPA&s"
+              className="rounded-full w-28 sm:w-40 "
+            />
+            <div className="py-2 text-center md:text-start">
+              <h1 className="text-2xl font-semibold">Fajar ahmadi</h1>
+              <h2 className="mt-2 md:mt-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                praesentium aliquam, officia nam deserunt suscipit in, similique
+                repudiandae corrupti dignissimos
+              </h2>
+            </div>
+            <ButtonFollow />
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
-import { Plus } from "lucide-react";
 import React from "react";
 import BlogItemComponent from "../component/HomeComponent/BlogItemComponent";
 import RetweetItemComponent from "../component/HomeComponent/RetweetItemComponent";
+import ButtonFollow from "../component/ProfileComponent/ButtonFollow";
 
 const ProfilePage = () => {
   return (
@@ -17,12 +17,7 @@ const ProfilePage = () => {
               />
               <div className="absolute w-full pb-10 bg-white rounded-lg z-8 top-24">
                 <div className="flex justify-end">
-                  <button className="flex items-center justify-center gap-1 px-2 py-1 mt-2 rounded-lg bg-slate-200 me-2 hover:bg-slate-100">
-                    <Plus className="w-4 h-4 mt-1 md:w-6 md:h-6 lg:w-8 lg:h-8 text-slate-600" />
-                    <span className="font-semibold text-md md:text-lg lg:text-2xl text-slate-600">
-                      Follow
-                    </span>
-                  </button>
+                  <ButtonFollow />
                 </div>
                 <div className="mt-6 text-center sm:mt-10 lg:mt-14">
                   <h1 className="text-xl font-bold sm:text-2xl lg:text-3xl ">
