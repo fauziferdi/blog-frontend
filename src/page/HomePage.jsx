@@ -26,7 +26,7 @@ const HomePage = () => {
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-8">
           {/* second main */}
-          <div className="rounded-lg  md:col-span-2">
+          <div className="rounded-lg md:col-span-2">
             <div className="flex justify-between">
               {/* button switch main follow */}
               <HandleSwitchComponent
@@ -34,12 +34,15 @@ const HomePage = () => {
                 activeButton={activeButton}
               />
               {/* Button Write a blog */}
-              <button className="hidden px-4 py-2 text-gray-500 bg-white border rounded-md md:block hover:bg-gray-100">
+              <Link
+                to="/writeblog"
+                className="hidden px-4 py-2 text-gray-500 bg-white border rounded-md md:block hover:bg-gray-100"
+              >
                 <span className="flex items-center">
                   <SquarePen size={20} />
                   <span className="ml-2">Write a blog</span>
                 </span>
-              </button>
+              </Link>
             </div>
             {/* active category blog */}
             <h4 className="py-4 text-slate-700 ms-1">All Category</h4>

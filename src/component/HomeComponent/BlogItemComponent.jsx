@@ -56,7 +56,6 @@ const BlogItemComponent = ({ retweet = false }) => {
               <ThumbsUp className="text-black hover:text-blue-700 fill-blue-500 " />
               <MessageCircle className=" hover:text-blue-700" />
               <Repeat className="hover:text-blue-700" />
-
               <Bookmark className="hover:text-blue-700" />
             </div>
           </div>
