@@ -15,19 +15,21 @@ const App = () => {
   return (
     <Router>
       <NavbarComponent />
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<HomePage />} />
-          <Route path="/category" element={<CategoryPage />} />
-          <Route path="/login/direct" element={<DirectPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/blog" element={<DetailBlogPage />} />
-          <Route path="/writeblog" element={<WriteBlogPage />} />
-        </Route>
-      </Routes>
+      <main className="w-full min-h-screen py-10 bg-slate-100">
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={<HomePage />} />
+            <Route path="/category" element={<CategoryPage />} />
+            <Route path="/login/direct" element={<DirectPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/blog" element={<DetailBlogPage />} />
+            <Route path="/writeblog" element={<WriteBlogPage />} />
+          </Route>
+        </Routes>
+      </main>
     </Router>
   );
 };

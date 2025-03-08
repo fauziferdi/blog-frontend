@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+const token = localStorage.getItem("token");
 
 const initialState = {
-  user: null,
-  token: localStorage.getItem("token"),
+  data: jwtDecode(token),
+  token: token,
   loading: false,
   error: null,
 };
@@ -59,6 +61,20 @@ const userSlice = createSlice({
       localStorage.removeItem("token");
       console.log(localStorage.getItem("token"));
     },
+    checkUSer(state) {
+      if (state.token) {
+        try {
+          const decodedToken = jwtDecode(state.token);
+          console.log(decodedToken);
+          //Anda bisa menggunakan informasi decodedToken untuk update state user.
+        } catch (error) {
+          console.error("Token tidak valid:", error);
+          //Tindakan jika token tidak valid.
+        }
+      } else {
+        console.log("Token tidak tersedia");
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,8 +84,8 @@ const userSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
         state.token = action.payload.token;
+        state.data = jwtDecode(action.payload.token);
         localStorage.setItem("token", action.payload.token);
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -84,7 +100,7 @@ const userSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.data = jwtDecode(action.payload.token);
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
@@ -93,6 +109,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, checkUSer } = userSlice.actions;
 
 export default userSlice.reducer;

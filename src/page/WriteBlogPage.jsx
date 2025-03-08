@@ -112,6 +112,7 @@ const WriteBlogPage = () => {
             dangerouslySetInnerHTML={{ __html: content }}
             onInput={handleContentChange}
           ></div>
+          <button></button>
         </div>
       </div>
     </section>
