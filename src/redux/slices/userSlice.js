@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import api from "../../lib/axios";
 const token = localStorage.getItem("token");
 
 const initialState = {
@@ -14,7 +15,7 @@ export const loginUser = createAsyncThunk(
   "user/login",
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
+      const response = await api.post("auth/login", {
         username,
         password,
       });
